@@ -1,4 +1,14 @@
-*, *::before, *::after {
+@import 'navbar.css';
+@import 'buttons.css';
+@import 'hero.css';
+@import 'card.css';
+@import 'landingpage.css';
+@import 'footer.css';
+@import 'datespage.css';
+@import 'date.css';
+@import 'addDate.css';
+
+* {
     font-family: sans-serif;
     box-sizing: border-box;
 }

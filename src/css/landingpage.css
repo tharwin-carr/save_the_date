@@ -1,0 +1,9 @@
+.landing-page__container {
+    text-align: center;
+}
+
+.landing-page__info {
+    margin-top: 100px;
+    background-color: #bbb;
+    padding: 15px;
+}

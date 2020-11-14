@@ -1,0 +1,15 @@
+.hero__container {
+    text-align: center;
+    line-height: 1.5;
+    padding-top: 30px;
+}
+
+.hero-header__text {
+    padding: 15px;
+    font-size: 24px;
+}
+
+.hero-description__container {
+    padding-left: 15px;
+    padding-right: 15px;
+}

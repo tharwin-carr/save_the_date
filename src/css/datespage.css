@@ -1,0 +1,25 @@
+.dates-page__container {
+    width: 100%;
+    text-align: center;
+}
+
+.dates-page__header {
+    padding-top: 100px;
+    margin-bottom: 50px;
+}
+
+.add-date-btn__container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.generate-btn, .add-date-btn {
+    margin-top: 20px;
+}
+
+.add-date-btn {
+    margin-right: -15px;
+}

@@ -1,0 +1,10 @@
+.add-date__container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+textarea.add-date__input {
+    resize: none;
+    height: 150px;
+    width: 300px;
+}
