@@ -8,3 +8,7 @@ textarea.add-date__input {
     height: 150px;
     width: 300px;
 }
+
+.add-date__btn {
+    margin-top: 20px;
+}

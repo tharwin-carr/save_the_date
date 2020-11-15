@@ -10,7 +10,11 @@ export default function AddDate() {
                 name='add-date'
                 className='add-date__input'
                 id='input'
-                />
+            />
+            <br />
+            <button className='btn add-date__btn'>
+                Submit
+            </button>
         </div>
     )
 }
