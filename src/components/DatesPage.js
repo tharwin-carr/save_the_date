@@ -1,37 +1,52 @@
-import React, { useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import sampleDates from './SampleDates'
 
-
-
-
-export default function DatesPage() {
-    const [dates, setDates] = useState(sampleDates.sampleDates)
-
-    const getRandomDate = () => {
-        let randomDate = Math.floor(Math.random() * dates.length)
-        setDates(dates[randomDate])
+export default class DatesPage extends Component {
+    constructor() {
+        super()
+        this.state = {
+            id: sampleDates.id,
+            dateDescription: sampleDates.dateDescription
+        }
     }
 
-    useEffect(() => {
-        getRandomDate()
-    }, [])
+    //function to generate a random date
+    generateRandomDate = () => {
+        //get random numbers for new date idea
+        let randomNum = Math.floor(Math.random() * sampleDates.length)
+        let randomDate = sampleDates[randomNum]
 
-    return (
+        //update state
+        this.setState({
+            id: randomDate.id,
+            dateDescription: randomDate.dateDescription
+        })
 
-        <div className='dates-page__container'>
+        this.shuffleDates(sampleDates)
+        console.log(sampleDates)
+    }
+
+    //shuffle dates
+    shuffleDates = (arr) => {
+        return arr.sort(function () { return 0.5 - Math.random() });
+    }
+
+    render() {
+        return (
+            <div className='dates-page__container'>
             <h2 className='dates-page__header'>
-                You're random date idea is:
+                Your random date idea is:
             </h2>
             <p>
-                {dates.dateDescription}                               
+                {this.state.dateDescription}                               
             </p>
             <div className='add-date-btn__container'>
                 <button
-                    onClick={getRandomDate} 
+                    onClick={this.generateRandomDate} 
                     className='btn generate-btn'
                 >
-                    Generate New Date
+                    Generate Date
                 </button>
                 <Link to='/add-date'>
                     <button className='btn add-date-btn'>
@@ -40,5 +55,7 @@ export default function DatesPage() {
                 </Link>
             </div>
         </div>
-    )
+
+        )
+    }
 }

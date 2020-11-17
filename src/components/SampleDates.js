@@ -1,5 +1,4 @@
-export default {
-    'sampleDates': [
+const sampleDates= [
         {
             id: 1,
             dateDescription: 'Go to the highest point in the city/town and watch the sunset.'
@@ -41,4 +40,5 @@ export default {
             dateDescription: 'Take a dance lesson'
         }
     ]
-} 
+
+    export default sampleDates
