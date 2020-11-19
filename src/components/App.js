@@ -12,16 +12,17 @@ import DateContext from '../DateContext'
 export default class App extends Component {
   state = {
       sampleDates
-    }
+  }
 
-  handleDateAdd = date => {
+  /*handleDateAdd = date => {
     this.setState({
       sampleDates: [...this.state.sampleDates, date]      
     })   
-  }
+  }*/
 
   render() {
     const dateContextValue = {
+      sampleDates: this.state.sampleDates,
       handleDateAdd: this.handleDateAdd
     }
     return (
