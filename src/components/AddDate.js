@@ -19,7 +19,7 @@ export default class AddDate extends Component {
             dateDescription: e.target['dateDescription'].value
         }
         //this.context.handleDateAdd(newDate)
-        //this.props.history.push('/dates')
+        this.props.history.push('/dates')
         console.log(newDate)
         console.log(sampleDates)
     }
