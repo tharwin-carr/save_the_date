@@ -1,44 +1,44 @@
-const sampleDates= [
+const dates= [
         {
             id: 1,
-            dateDescription: 'Go to the highest point in the city/town and watch the sunset.'
+            content: 'Go to the highest point in the city/town and watch the sunset.'
         },
         {
             id: 2,
-            dateDescription: 'Go to a park you have never been to before and have a picnic'
+            content: 'Go to a park you have never been to before and have a picnic'
         },
         {
             id: 3,
-            dateDescription: 'Dinner and a movie'
+            content: 'Dinner and a movie'
         },
         {
             id: 4,
-            dateDescription: 'Look up a random recipe and cook dinner together'
+            content: 'Look up a random recipe and cook dinner together'
         },
         {
             id: 5,
-            dateDescription: 'Go bowling'
+            content: 'Go bowling'
         },
         {
             id: 6,
-            dateDescription: 'Play miniature golf'
+            content: 'Play miniature golf'
         },
         {
             id: 7,
-            dateDescription: 'Go-Kart racing'
+            content: 'Go-Kart racing'
         },
         {
             id: 8,
-            dateDescription: 'Go hiking'
+            content: 'Go hiking'
         },
         {
             id: 9,
-            dateDescription: 'Go to a wine and paint night'
+            content: 'Go to a wine and paint night'
         },
         {
             id: 10,
-            dateDescription: 'Take a dance lesson'
+            content: 'Take a dance lesson'
         }
     ]
 
-    export default sampleDates
+    export default dates

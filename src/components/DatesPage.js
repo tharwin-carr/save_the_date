@@ -1,30 +1,48 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import sampleDates from './SampleDates'
+//import dates from './SampleDates'
+import config from '../config'
+import DateContext from '../DateContext'
 
 export default class DatesPage extends Component {
+    static contextType = DateContext
     constructor() {
         super()
         this.state = {
-            id: sampleDates.id,
-            dateDescription: sampleDates.dateDescription
+            dates: []
         }
+        this.handleClickGenerate = this.handleClickGenerate.bind(this)
+    }
+
+    handleClickGenerate(event) {
+        event.preventDefault()
+        fetch(`${config.API_ENDPOINT}/dates`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            this.setState({
+                dates: data
+            })
+            this.generateRandomDate(data)
+        })
     }
 
     //function to generate a random date
-    generateRandomDate = () => {
+    generateRandomDate(date) {
         //get random numbers for new date idea
-        let randomNum = Math.floor(Math.random() * sampleDates.length)
-        let randomDate = sampleDates[randomNum]
+        let randomNum = Math.floor(Math.random() * date.length)
+        let randomDate = date[randomNum]
 
         //update state
         this.setState({
-            id: randomDate.id,
-            dateDescription: randomDate.dateDescription
+            dates: randomDate
         })
 
-        this.shuffleDates(sampleDates)
-        console.log(sampleDates)
+        this.shuffleDates(date)
     }
 
     //shuffle dates
@@ -39,11 +57,11 @@ export default class DatesPage extends Component {
                 Your random date idea is:
             </h2>
             <p>
-                {this.state.dateDescription}                               
+                {this.state.dates.content}                               
             </p>
             <div className='add-date-btn__container'>
                 <button
-                    onClick={this.generateRandomDate} 
+                    onClick={this.handleClickGenerate} 
                     className='btn generate-btn'
                 >
                     Generate Date

@@ -6,24 +6,42 @@ import NavBar from './NavBar'
 import LandingPage from './LandingPage'
 import DatesPage from './DatesPage'
 import AddDate from './AddDate'
-import sampleDates from './SampleDates'
 import DateContext from '../DateContext'
+import config from '../config'
 
 export default class App extends Component {
   state = {
-      sampleDates
+      dates: []
   }
 
-  /*handleDateAdd = date => {
-    this.setState({
-      sampleDates: [...this.state.sampleDates, date]      
-    })   
-  }*/
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/dates`)
+    ])
+      .then(([datesRes]) => {
+        if(!datesRes.ok)
+        return datesRes.json().then(e => Promise.reject(e))
 
+        return Promise.all([datesRes.json()])
+      })
+      .then(([dates]) => {
+        this.setState({dates})
+      })
+      .catch(error => {
+        console.error({error})
+      })
+  }
+
+  addDate = date => {
+    this.setState({
+      dates: [...this.state.dates, date]
+    })
+  }
+  
   render() {
     const dateContextValue = {
-      sampleDates: this.state.sampleDates,
-      handleDateAdd: this.handleDateAdd
+      dates: this.state.dates,
+      addDate: this.addDate
     }
     return (
       <DateContext.Provider value= {dateContextValue}>

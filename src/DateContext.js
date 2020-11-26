@@ -1,7 +1,10 @@
 import React from 'react'
 
 const DateContext = React.createContext({
-    addDate: () => {}
+    dates: [],
+    addDate: () => {},
+    deleteDate: () => {},
+    updateDate: () => {}
 })
 
 export default DateContext
