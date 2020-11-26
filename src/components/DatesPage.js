@@ -19,7 +19,7 @@ export default class DatesPage extends Component {
         fetch(`${config.API_ENDPOINT}/dates`, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
+                'Accept-Control-Request-Headers': '*',
                 'content-type': 'application/json'
             }
         })
