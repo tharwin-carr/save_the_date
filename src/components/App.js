@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-//import { v4 as uuidv4 } from 'uuid'
-import '../css/app.css';
+import '../css/app.css'
 import NavBar from './NavBar'
 import LandingPage from './LandingPage'
 import DatesPage from './DatesPage'
