@@ -3,5 +3,5 @@
 //}
 
 export default {
-    API_ENDPOINT: `https://secret-garden-301013.herokuapp.com/api`
+    API_ENDPOINT: `https://cors-anywhere.secret-garden-301013.herokuapp.com/api`
 }
