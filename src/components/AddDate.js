@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import dates from './SampleDates'
 import DateContext from '../DateContext'
-//import { v4 as uuidv4 } from 'uuid'
+import ErrorBoundary from '../ErrorBoundary'
+import ValidationError from '../ValidationError'
 import config from '../config'
 
 
@@ -45,7 +46,6 @@ export default class AddDate extends Component {
         fetch(`${config.API_ENDPOINT}/dates`, {
             method:'POST',
             headers: {
-                'Accept': 'application/json',
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newDate)
@@ -55,36 +55,39 @@ export default class AddDate extends Component {
             this.context.addDate(newDate)
             this.props.history.push('/dates')
         })
-        .catch(e => this.setState({
+        .catch(event => this.setState({
             error: 'Something went wrong. Please try again'
         }))
-        //this.context.handleDateAdd(newDate)
-        console.log(newDate)
-        console.log(dates)
     }
 
     render() {
         return (
-            <div className='add-date__container'>
-                <form onSubmit={event => this.handleSubmit(event)}>
-                    <h3 className='add-date__header'>
-                        Add New Date:
-                    </h3>
-                    <textarea
-                        name='content'
-                        className='add-date__input'
-                        id='input'
-                        onChange={e => {this.updateContent(e.target.value)}}
-                    />
-                    <br />
-                    <button
-                        className='btn add-date__btn'
-                        type='submit'
-                    >
-                        Submit
-                    </button>
-                </form>
-            </div>
+            <ErrorBoundary>
+                <div className='add-date__container'>
+                    <form onSubmit={event => this.handleSubmit(event)}>
+                        <h3 className='add-date__header'>
+                            Add New Date:
+                        </h3>
+                        <textarea
+                            name='content'
+                            className='add-date__input'
+                            id='input'
+                            onChange={e => {this.updateContent(e.target.value)}}
+                        />
+                        {this.state.content.touched && (
+                            <ValidationError message={this.validateDateContent()} />
+                        )}
+                        <br />
+                        <button
+                            className='btn add-date__btn'
+                            type='submit'
+                            disabled={this.validateDateContent()}
+                        >
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </ErrorBoundary>
         )
     
     }
