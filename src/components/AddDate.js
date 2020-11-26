@@ -45,6 +45,7 @@ export default class AddDate extends Component {
         fetch(`${config.API_ENDPOINT}/dates`, {
             method:'POST',
             headers: {
+                'Accept': 'application/json',
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newDate)
