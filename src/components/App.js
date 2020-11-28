@@ -19,7 +19,7 @@ export default class App extends Component {
         if(!datesRes.ok)
         return datesRes.json().then(e => Promise.reject(e))
 
-        return Promise.all([datesRes.json()])
+        return [datesRes.json()]
       })
       .then(([dates]) => {
         this.setState({dates})
