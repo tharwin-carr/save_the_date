@@ -13,10 +13,8 @@ export default class App extends Component {
       dates: []
   }
 
-  componentDidMount() {
-    Promise.all([
-      fetch(`${config.API_ENDPOINT}/dates`)
-    ])
+  componentDidMount() {    
+      fetch(`${config.API_ENDPOINT}/dates`)    
       .then(([datesRes]) => {
         if(!datesRes.ok)
         return datesRes.json().then(e => Promise.reject(e))
