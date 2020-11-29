@@ -14,22 +14,23 @@ export default class App extends Component {
   }
 
   componentDidMount() {    
-      fetch(`${config.API_ENDPOINT}/dates`), {
+      fetch(`${config.API_ENDPOINT}/dates`, {
+        method: 'GET',
         headers: {
           'content-type': 'application/json'
         }
-      }
-      .then(([datesRes]) => {
-        if(!datesRes.ok)
-        return datesRes.json().then(e => Promise.reject(e))
-        return [datesRes.json()]
       })
-      .then(([dates]) => {
-        this.setState({dates})
+      .then((res) => {
+        if(!res.ok) {
+          throw new Error(res.status)
+        }
+      return res.json()
       })
-      .catch(error => {
-        console.error({error})
+      .then(this.setState({
+        dates
       })
+      .catch((error) => this.setState({ error }))
+      )
   }
 
   addDate = date => {
