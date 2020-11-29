@@ -14,12 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {    
-      fetch(`${config.API_ENDPOINT}/dates`, {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
+      fetch(`${config.API_ENDPOINT}/dates`)
       .then(([datesRes]) => {
         if(!datesRes.ok)
         return datesRes.json().then(e => Promise.reject(e))

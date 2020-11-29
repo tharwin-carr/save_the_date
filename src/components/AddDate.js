@@ -48,7 +48,7 @@ export default class AddDate extends Component {
             body: JSON.stringify(newDate),
             headers: {
                 'content-type': 'application/json'
-            },
+            }            
         })
         .then(res => res.json())
         .then(newDate => {
