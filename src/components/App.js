@@ -28,9 +28,9 @@ export default class App extends Component {
       })
       .then(this.setState({
         dates
-      })
+      }))
       .catch((error) => this.setState({ error }))
-      )
+      
   }
 
   addDate = date => {

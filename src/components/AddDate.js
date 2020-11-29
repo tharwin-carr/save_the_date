@@ -55,8 +55,8 @@ export default class AddDate extends Component {
             this.context.addDate(newDate)
             this.props.history.push('/dates')
         })
-        .catch((err) => {
-            message.error(`Pleas try agian later ${err}`)
+        .catch((error) => {
+            console.log(error)
         })
     }
 
