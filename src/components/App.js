@@ -14,14 +14,14 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    Promise([
+    Promise.all([
       fetch(`${config.API_ENDPOINT}/dates`)
     ])
       .then(([datesRes]) => {
         if(!datesRes.ok)
         return datesRes.json().then(e => Promise.reject(e))
 
-        return Promise([datesRes.json()])
+        return Promise.all([datesRes.json()])
       })
       .then(([dates]) => {
         this.setState({dates})
