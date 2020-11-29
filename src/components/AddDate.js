@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import dates from './SampleDates'
+//import dates from './SampleDates'
 import DateContext from '../DateContext'
 import ErrorBoundary from '../ErrorBoundary'
 import ValidationError from '../ValidationError'
