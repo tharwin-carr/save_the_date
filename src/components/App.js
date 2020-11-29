@@ -30,7 +30,7 @@ export default class App extends Component {
         console.error({error})
       })
   }
-  
+
   addDate = date => {
     this.setState({
       dates: [...this.state.dates, date]

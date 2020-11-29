@@ -20,7 +20,8 @@ export default class DatesPage extends Component {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'
-            }
+            },
+            body: JSON.stringify()
         })
         .then(res => res.json())
         .then(data => {
