@@ -19,7 +19,7 @@ export default class DatesPage extends Component {
         fetch(`${config.API_ENDPOINT}/dates`, {
             method: 'GET',
             headers: {
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'https://save-the-date-wheat.vercel.app',
                 'content-type': 'application/json'
             }
         })
