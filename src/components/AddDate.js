@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 //import dates from './SampleDates'
 import DateContext from '../DateContext'
-import ErrorBoundary from '../ErrorBoundary'
-import ValidationError from '../ValidationError'
 import config from '../config'
 
 
@@ -62,7 +60,6 @@ export default class AddDate extends Component {
 
     render() {
         return (
-            <ErrorBoundary>
                 <div className='add-date__container'>
                     <form onSubmit={event => this.handleSubmit(event)}>
                         <h3 className='add-date__header'>
@@ -74,9 +71,6 @@ export default class AddDate extends Component {
                             id='input'
                             onChange={e => {this.updateContent(e.target.value)}}
                         />
-                        {this.state.content.touched && (
-                            <ValidationError message={this.validateDateContent()} />
-                        )}
                         <br />
                         <button
                             className='btn add-date__btn'
@@ -87,8 +81,6 @@ export default class AddDate extends Component {
                         </button>
                     </form>
                 </div>
-            </ErrorBoundary>
-        )
-    
+        )    
     }
 }
