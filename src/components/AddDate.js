@@ -45,20 +45,19 @@ export default class AddDate extends Component {
         }
         fetch(`${config.API_ENDPOINT}/dates`, {
             method:'POST',
+            body: JSON.stringify(newDate),
             headers: {
-                'Accept-Control-Request-Headers': '*',
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newDate)
         })
         .then(res => res.json())
         .then(newDate => {
             this.context.addDate(newDate)
             this.props.history.push('/dates')
         })
-        .catch(event => this.setState({
-            error: 'Something went wrong. Please try again'
-        }))
+        .catch((err) => {
+            message.error(`Pleas try agian later ${err}`)
+        })
     }
 
     render() {
