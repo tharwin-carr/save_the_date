@@ -13,7 +13,7 @@ export default class App extends Component {
       dates: []
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/dates`)
     ])
@@ -29,7 +29,7 @@ export default class App extends Component {
       .catch(error => {
         console.error({error})
       })
-  }
+  }*/
 
   addDate = date => {
     this.setState({

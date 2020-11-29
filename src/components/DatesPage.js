@@ -17,7 +17,7 @@ export default class DatesPage extends Component {
     handleClickGenerate(event) {
         event.preventDefault()
         fetch(`${config.API_ENDPOINT}/dates`, {
-            method: 'OPTIONS',
+            method: 'GET',
             headers: {
                 'Access-Control-Allow-Origin': 'https://save-the-date-wheat.vercel.app',
                 'content-type': 'application/json'
