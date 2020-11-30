@@ -84,7 +84,7 @@ export default class AddDate extends Component {
                         </button>
                         <br />
                         <button
-                        className='btn goBack__btn'
+                        className='btn back__btn'
                         type='button'
                         onClick={() => this.props.history.push('/dates')}
                         >
