@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import dates from './SampleDates'
 import config from '../config'
 import DateContext from '../DateContext'
 
@@ -10,7 +9,7 @@ export default class DatesPage extends Component {
         super()
         this.state = {
             dates: [],
-            alert_message:''
+            headerMessage: ''
         }
         this.handleClickGenerate = this.handleClickGenerate.bind(this)
     }
@@ -27,9 +26,11 @@ export default class DatesPage extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({
-                dates: data
+                dates: data,
+                headerMessage:'generatedDate'
             })
             this.generateRandomDate(data)
+            console.log(data)
         })
     }
 
@@ -56,7 +57,7 @@ export default class DatesPage extends Component {
         return (
             <div className='dates-page__container'>
             <h2 className='dates-page__header'>
-                Your random date idea is:
+                {this.state.headerMessage === 'generatedDate' ? 'Your random date idea is:' : `Let's generate a date!`}
             </h2>
             <p>
                 {this.state.dates.content}                               

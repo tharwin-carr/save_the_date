@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 //import dates from './SampleDates'
 import DateContext from '../DateContext'
-import SuccessAlert from './SuccessAlert'
 import config from '../config'
 
 
@@ -54,23 +53,18 @@ export default class AddDate extends Component {
         .then(newDate => {
             this.context.addDate(newDate)
             this.props.history.push('/dates')
-            this.setState({
-                alert_message:'success'
-            })
+            alert('Date has been submitted successfully!')
+            document.forms['addDateForm'].reset()
         })
         .catch((error) => {
             console.log(error)
-            this.setState({
-                alert_message: `${error}`
-            })
         })
     }
 
     render() {
         return (
                 <div className='add-date__container'>
-                    {this.state.alert_message == 'success' ? < SuccessAlert /> : null}
-                    <form onSubmit={event => this.handleSubmit(event)}>
+                    <form id='addDateForm' onSubmit={event => this.handleSubmit(event)}>
                         <h3 className='add-date__header'>
                             Add New Date:
                         </h3>
