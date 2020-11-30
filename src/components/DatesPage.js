@@ -9,7 +9,8 @@ export default class DatesPage extends Component {
     constructor() {
         super()
         this.state = {
-            dates: []
+            dates: [],
+            alert_message:''
         }
         this.handleClickGenerate = this.handleClickGenerate.bind(this)
     }
