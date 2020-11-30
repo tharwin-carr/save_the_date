@@ -82,6 +82,14 @@ export default class AddDate extends Component {
                         >
                             Submit
                         </button>
+                        <br />
+                        <button
+                        className='btn goBack__btn'
+                        type='button'
+                        onClick={() => this.props.history.push('/dates')}
+                        >
+                        Back
+                        </button>
                     </form>
                 </div>
         )    
