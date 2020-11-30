@@ -9,7 +9,8 @@ export default class DatesPage extends Component {
         super()
         this.state = {
             dates: [],
-            headerMessage: ''
+            headerMessage: '',
+            border: 'false'
         }
         this.handleClickGenerate = this.handleClickGenerate.bind(this)
     }
@@ -27,7 +28,8 @@ export default class DatesPage extends Component {
         .then(data => {
             this.setState({
                 dates: data,
-                headerMessage:'generatedDate'
+                headerMessage:'generatedDate',
+                border:'true'
             })
             this.generateRandomDate(data)
             console.log(data)
@@ -59,7 +61,15 @@ export default class DatesPage extends Component {
             <h2 className='dates-page__header'>
                 {this.state.headerMessage === 'generatedDate' ? 'Your random date idea is:' : `Let's generate a date!`}
             </h2>
-            <p>
+            <p 
+                className='dates-page__date'
+                style= {this.state.border === 'true' ? {
+                    border: '1px solid black',
+                    padding: '30px',
+                    width: '60%',
+                    margin: '0 auto'
+                } : {display: 'none'}}                
+            >
                 {this.state.dates.content}                               
             </p>
             <div className='add-date-btn__container'>
