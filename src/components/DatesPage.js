@@ -29,7 +29,6 @@ export default class DatesPage extends Component {
                 dates: data
             })
             this.generateRandomDate(data)
-            console.log(data)
         })
     }
 
