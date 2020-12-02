@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import dates from './SampleDates'
 import DateContext from '../DateContext'
 import config from '../config'
 
@@ -52,9 +51,9 @@ export default class AddDate extends Component {
         .then(res => res.json())
         .then(newDate => {
             this.context.addDate(newDate)
-            this.props.history.push('/dates')
             alert('Date has been submitted successfully!')
-            document.forms['addDateForm'].reset()
+            this.props.history.push('/dates')
+
         })
         .catch((error) => {
             console.log(error)

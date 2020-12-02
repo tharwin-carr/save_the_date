@@ -12,7 +12,7 @@ export default function Hero() {
 
             <div className='hero-description__container'>
                 <p className='hero-description__text'>
-                    Save The Date helps elimnate the monotony of going on the same dates with your significant other
+                    Save The Date helps eliminate the monotony of going on the same dates with your significant other
                     over and over again by randomly generating a date idea in seconds!
                 </p>
             </div>

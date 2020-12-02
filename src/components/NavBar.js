@@ -11,9 +11,13 @@ export default function NavBar() {
                 </Link>
             </div>
             
-            <div className='nav-bar-logo__container'>
-                <Link to='/dates'>
-                    <img src="https://img.icons8.com/ios-filled/24/000000/calendar-15.png" alt='calendar icon'/>
+            <div className='nav-bar-links__container'>
+                <Link to='/dates' className='nav-bar__btn'>
+                    Dates
+                </Link>
+
+                <Link to='/saved-dates' className='nav-bar__btn'>
+                    Favorites
                 </Link>
             </div>            
         </div>

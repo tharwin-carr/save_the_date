@@ -4,15 +4,20 @@ import config from '../config'
 import DateContext from '../DateContext'
 
 export default class DatesPage extends Component {
+    static defaultProps = {
+        onSaveDate: () => {}
+    }
     static contextType = DateContext
     constructor() {
         super()
         this.state = {
             dates: [],
             headerMessage: '',
-            border: 'false'
+            border: 'false',
+            saveBtn: 'false'
         }
         this.handleClickGenerate = this.handleClickGenerate.bind(this)
+        this.handleClickSave = this.handleClickSave.bind(this)
     }
 
     handleClickGenerate(event) {
@@ -20,19 +25,32 @@ export default class DatesPage extends Component {
         fetch(`${config.API_ENDPOINT}/dates`, {
             method: 'GET',
             headers: {
-                'Access-Control-Allow-Origin': 'https://save-the-date-wheat.vercel.app',
                 'content-type': 'application/json'
             }
         })
         .then(res => res.json())
         .then(data => {
             this.setState({
-                dates: data,
                 headerMessage:'generatedDate',
-                border:'true'
+                border:'true',
+                saveBtn:'true'
             })
             this.generateRandomDate(data)
-            console.log(data)
+        })
+    }
+
+    handleClickSave(event) {
+        event.preventDefault()
+        fetch(`${config.API_ENDPOINT}/favorites`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(date_id => {
+            this.context.saveFavorite(date_id)
+            console.log(date_id)
         })
     }
 
@@ -42,7 +60,6 @@ export default class DatesPage extends Component {
         let randomNum = Math.floor(Math.random() * date.length)
         let randomDate = date[randomNum]
 
-        //update state
         this.setState({
             dates: randomDate
         })
@@ -70,7 +87,7 @@ export default class DatesPage extends Component {
                     margin: '0 auto'
                 } : {display: 'none'}}                
             >
-                {this.state.dates.content}                               
+                {this.state.dates.content}                                              
             </p>
             <div className='add-date-btn__container'>
                 <button
@@ -79,6 +96,9 @@ export default class DatesPage extends Component {
                 >
                     Generate Date
                 </button>
+
+                {this.state.saveBtn === 'true' ? <button className='btn save-btn' onClick={this.handleClickSave}>Save the Date!</button> : null}
+
                 <Link to='/add-date'>
                     <button className='btn add-date-btn'>
                         Submit A New Date Idea                    
@@ -86,7 +106,6 @@ export default class DatesPage extends Component {
                 </Link>
             </div>
         </div>
-
         )
     }
 }
