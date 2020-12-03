@@ -12,6 +12,7 @@ export default class DatesPage extends Component {
         super()
         this.state = {
             dates: [],
+            favorites: [],
             headerMessage: '',
             border: 'false',
             saveBtn: 'false'
@@ -40,6 +41,8 @@ export default class DatesPage extends Component {
     }
 
     handleClickSave(event) {
+        const favorite = this.state.dates.content
+        console.log(favorite)
         event.preventDefault()
         fetch(`${config.API_ENDPOINT}/favorites`, {
             method: 'POST',
@@ -48,9 +51,10 @@ export default class DatesPage extends Component {
             }
         })
         .then(res => res.json())
-        .then(date_id => {
-            this.context.saveFavorite(date_id)
-            console.log(date_id)
+        .then(favorite => {
+            this.context.favoriteDate(favorite)
+            //alert('Date was saved as a favoirte.')
+  
         })
     }
 

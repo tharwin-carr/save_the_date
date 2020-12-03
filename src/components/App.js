@@ -15,7 +15,7 @@ export default class App extends Component {
       favorites: []
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/dates`)
     ])
@@ -31,7 +31,7 @@ export default class App extends Component {
       .catch(error => {
         console.error({error})
       })
-  }
+  }*/
 
   handleDeleteFavoriteDate = favoriteDate_id => {
     this.setState({
