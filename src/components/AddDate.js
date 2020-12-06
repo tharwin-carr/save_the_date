@@ -53,7 +53,6 @@ export default class AddDate extends Component {
             this.context.addDate(newDate)
             alert('Date has been submitted successfully!')
             this.props.history.push('/dates')
-
         })
         .catch((error) => {
             console.log(error)

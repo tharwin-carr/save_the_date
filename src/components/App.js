@@ -6,8 +6,8 @@ import LandingPage from './LandingPage'
 import DatesPage from './DatesPage'
 import AddDate from './AddDate'
 import DateContext from '../DateContext'
-import config from '../config'
-import SavedDatesPage from './SavedDatesPage'
+//import config from '../config'
+import FavoriteDatesPage from './FavoriteDatesPage'
 
 export default class App extends Component {
   state = {
@@ -15,27 +15,9 @@ export default class App extends Component {
       favorites: []
   }
 
-  /*componentDidMount() {
-    Promise.all([
-      fetch(`${config.API_ENDPOINT}/dates`)
-    ])
-      .then(([datesRes,]) => {
-        if(!datesRes.ok)
-        return datesRes.json().then(e => Promise.reject(e))
-
-        return Promise.all([datesRes.json()])
-      })
-      .then(([dates]) => {
-        this.setState({dates})
-      })
-      .catch(error => {
-        console.error({error})
-      })
-  }*/
-
-  handleDeleteFavoriteDate = favoriteDate_id => {
+  handleDeleteFavoriteDate = favorite_id => {
     this.setState({
-      favorites: this.state.favorites.filter(date => date.id !== favoriteDate_id)
+      favorites: this.state.favorites.filter(favorite => favorite.id !== favorite_id)
     })
   }
 
@@ -70,7 +52,7 @@ export default class App extends Component {
               <Route exact path='/' component={LandingPage} />
               <Route path='/dates' component={DatesPage} />
               <Route path='/add-date' component={AddDate} />
-              <Route path='/favorites' component={SavedDatesPage} />
+              <Route path='/favorites' component={FavoriteDatesPage} />
             </Switch>
           </main>
       </div>      

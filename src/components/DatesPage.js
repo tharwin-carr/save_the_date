@@ -4,9 +4,6 @@ import config from '../config'
 import DateContext from '../DateContext'
 
 export default class DatesPage extends Component {
-    static defaultProps = {
-        onSaveDate: () => {}
-    }
     static contextType = DateContext
     constructor() {
         super()
@@ -41,20 +38,28 @@ export default class DatesPage extends Component {
     }
 
     handleClickSave(event) {
-        const favorite = this.state.dates.content
+        const favorite = {
+            favorite_id: this.state.dates.id,
+        }
         console.log(favorite)
         event.preventDefault()
         fetch(`${config.API_ENDPOINT}/favorites`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
-            }
+            },
+            body: JSON.stringify(favorite)
         })
         .then(res => res.json())
         .then(favorite => {
             this.context.favoriteDate(favorite)
-            //alert('Date was saved as a favoirte.')
-  
+            alert('Date was saved as a favorite.')
+            console.log(this.state.favorites)
+            console.log(this.state.dates)
+        })
+
+        .catch((error) => {
+            console.log(error)
         })
     }
 
@@ -91,7 +96,7 @@ export default class DatesPage extends Component {
                     margin: '0 auto'
                 } : {display: 'none'}}                
             >
-                {this.state.dates.content}                                              
+                {this.state.dates.content}                                            
             </p>
             <div className='add-date-btn__container'>
                 <button
