@@ -13,9 +13,7 @@ export default class FavoriteDatesPage extends Component {
 
     handleClickDelete = e => {
         e.preventDefault()
-        let favorites = this.context.favorites
-        const favoriteId = favorites.filter(favorite =>
-            favorite.favorite_id === parseInt(this.props.match.params.favorite_id))
+        const favoriteId = Number(this.props.match.params.favorite_id)
         console.log(favoriteId)
 
         fetch(`${config.API_ENDPOINT}/favorites/${favoriteId}`, {
@@ -38,7 +36,7 @@ export default class FavoriteDatesPage extends Component {
     render() {
         const { favorites=[] } = this.context
         return (
-            <div className='favorites__container'>
+            <div classname='favorites__container'>
                 <ul>
                     {favorites.map(favorite =>
                     <li key={favorite.favorite_id}>
