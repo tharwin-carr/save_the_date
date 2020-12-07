@@ -16,7 +16,7 @@ export default function NavBar() {
                     Dates
                 </Link>
 
-                <Link to='/saved-dates' className='nav-bar__btn'>
+                <Link to='/favorites' className='nav-bar__btn'>
                     Favorites
                 </Link>
             </div>            

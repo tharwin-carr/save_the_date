@@ -9,7 +9,6 @@ export default class DatesPage extends Component {
         super()
         this.state = {
             dates: [],
-            favorites: [],
             headerMessage: '',
             border: 'false',
             saveBtn: 'false'
@@ -53,8 +52,9 @@ export default class DatesPage extends Component {
         .then(res => res.json())
         .then(favorite => {
             this.context.favoriteDate(favorite)
-            alert('Date was saved as a favorite.')
-            console.log(this.state.favorites)
+            alert('Date was successfully saved as a favorite!')
+            //window.location.reload()
+            console.log(this.context.favorites)
             console.log(this.state.dates)
         })
 

@@ -4,58 +4,52 @@ import config from '../config'
 
 
 export default class FavoriteDatesPage extends Component {
-    static contextType = DateContext
     static defaultProps = {
         match: {
-            params:{}
+            params: {}
         }
     }
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            dates: [],
-            favorites: []
-        }
-    }
-
-    compnentDidMount() {
-
-        Promise.all([
-            fetch(`${config.API_ENDPOINT}/dates`),
-            fetch(`${config.API_ENDPOINT}/favorites`)
-        ])
-            .then(([datesRes, favoritesRes]) => {
-                if(!datesRes.ok)
-                    return datesRes.json().then(e => Promise.reject(e))
-                if(!favoritesRes.ok)
-                    return favoritesRes.json().then(e => Promise.reject(e))
-
-                return Promise.all([datesRes.json(), favoritesRes.json()])
-            })
-            .then(([dates, favorites]) => {
-                this.setState({
-                    dates, favorites
-                })
-            })
-            .catch(error => {
-                console.error({error})
-            })         
-    }
-
     static contextType = DateContext
+
+    handleClickDelete = e => {
+        e.preventDefault()
+        const favoriteId = Number(this.props.match.params.favorite_id)
+        console.log(favoriteId)
+
+        fetch(`${config.API_ENDPOINT}/favorites/${favoriteId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'applicatioin/json'
+            }
+        })
+        .then(() => {
+            this.context.deleteFavorite(favoriteId)
+            console.log(favoriteId)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
+
+
     render() {
-        let favorites = this.state.favorites
+        const { favorites=[] } = this.context
         return (
             <div>
                 <ul>
                     {favorites.map(favorite =>
-                    <li key={favorite.id}>
-                        {this.state.favorites.content}                        
+                    <li key={favorite.favorite_id}>
+                        {favorite.favorite_content}     
+                        <button 
+                            className='btn'
+                            onClick={this.handleClickDelete}
+                        >
+                            Remove
+                        </button>                  
                     </li>
                     )}
-                </ul>
-                
+                </ul>                
             </div>
         )
     }

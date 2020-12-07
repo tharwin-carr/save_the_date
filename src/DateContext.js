@@ -2,7 +2,7 @@ import React from 'react'
 
 const DateContext = React.createContext({
     dates: [],
-    savedDates: [],
+    favorites: [],
     addDate: () => {},
     deleteFavorite: () => {},
     updateDate: () => {},

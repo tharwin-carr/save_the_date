@@ -6,7 +6,7 @@ import LandingPage from './LandingPage'
 import DatesPage from './DatesPage'
 import AddDate from './AddDate'
 import DateContext from '../DateContext'
-//import config from '../config'
+import config from '../config'
 import FavoriteDatesPage from './FavoriteDatesPage'
 
 export default class App extends Component {
@@ -15,7 +15,30 @@ export default class App extends Component {
       favorites: []
   }
 
-  handleDeleteFavoriteDate = favorite_id => {
+  componentDidMount() {
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/dates`),
+      fetch(`${config.API_ENDPOINT}/favorites`)
+    ])
+      .then(([datesRes, favoritesRes]) => {
+        if(!datesRes.ok)
+          return datesRes.json().then(e => Promise.reject(e))
+        if(!favoritesRes.ok)
+          return favoritesRes.json().then(e => Promise.reject(e))
+
+          return Promise.all([datesRes.json(), favoritesRes.json()])
+      })
+      .then(([dates, favorites]) => {
+        this.setState({dates, favorites})
+      })
+      .catch(error => {
+        console.error({error})
+      })
+  }
+
+
+
+  deleteFavorite = favorite_id => {
     this.setState({
       favorites: this.state.favorites.filter(favorite => favorite.id !== favorite_id)
     })
@@ -36,10 +59,10 @@ export default class App extends Component {
   render() {
     const dateContextValue = {
       dates: this.state.dates,
-      savedDates: this.state.savedDates,
+      favorites: this.state.favorites,
       addDate: this.addDate,
       favoriteDate: this.favoriteDate,
-      deleteFavorite: this.handleDeleteFavoriteDate
+      deleteFavorite: this.deleteFavorite
     }
     return (
       <DateContext.Provider value= {dateContextValue}>
