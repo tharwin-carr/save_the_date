@@ -7,6 +7,7 @@
 @import 'datespage.css';
 @import 'date.css';
 @import 'addDate.css';
+@import 'favoritedatespage.css';
 
 * {
     font-family: sans-serif;

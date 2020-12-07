@@ -36,8 +36,6 @@ export default class App extends Component {
       })
   }
 
-
-
   deleteFavorite = favorite_id => {
     this.setState({
       favorites: this.state.favorites.filter(favorite => favorite.id !== favorite_id)

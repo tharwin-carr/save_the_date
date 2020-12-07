@@ -38,7 +38,7 @@ export default class FavoriteDatesPage extends Component {
     render() {
         const { favorites=[] } = this.context
         return (
-            <div>
+            <div className='favorites__container'>
                 <ul>
                     {favorites.map(favorite =>
                     <li key={favorite.favorite_id}>
