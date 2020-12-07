@@ -13,7 +13,9 @@ export default class FavoriteDatesPage extends Component {
 
     handleClickDelete = e => {
         e.preventDefault()
-        const favoriteId = Number(this.props.match.params.favorite_id)
+        let favorites = this.context.favorites
+        const favoriteId = favorites.filter(favorite =>
+            favorite.favorite_id === parseInt(this.props.match.params.favorite_id))
         console.log(favoriteId)
 
         fetch(`${config.API_ENDPOINT}/favorites/${favoriteId}`, {
