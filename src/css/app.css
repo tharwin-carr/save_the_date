@@ -8,13 +8,14 @@
 @import 'date.css';
 @import 'addDate.css';
 @import 'favoritedatespage.css';
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Work+Sans&display=swap');
+
 
 * {
-    font-family: sans-serif;
     box-sizing: border-box;
 }
-
 body {
+    background-color: #EAE7DC;
     padding: 0;
     margin: 0;
 }

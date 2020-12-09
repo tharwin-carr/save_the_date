@@ -2,8 +2,14 @@
     text-align: center;
 }
 
+.landing-page__title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    margin-top: 50px;
+    color: #E85A4F;
+}
+
 .landing-page__info {
-    margin-top: 100px;
-    background-color: #bbb;
+    font-family: 'Work Sans', sans-serif;
     padding: 15px;
 }

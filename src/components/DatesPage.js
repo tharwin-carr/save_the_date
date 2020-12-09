@@ -106,11 +106,11 @@ export default class DatesPage extends Component {
                     Generate Date
                 </button>
 
-                {this.state.saveBtn === 'true' ? <button className='btn save-btn' onClick={this.handleClickSave}>Save the Date!</button> : null}
+                {this.state.saveBtn === 'true' ? <button className='btn save-btn' onClick={this.handleClickSave}><span className='save'>Save the Date!</span></button> : null}
 
                 <Link to='/add-date'>
                     <button className='btn add-date-btn'>
-                        Submit A New Date Idea                    
+                        <span className='add'>Submit A New Date Idea</span>                    
                     </button>
                 </Link>
             </div>

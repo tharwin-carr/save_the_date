@@ -1,6 +1,4 @@
-
 .nav-bar__container {
-    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -8,21 +6,48 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #aaa;    
 }
 
 .nav-bar__header {
-    padding: 5px;
+    padding: 10px;
 }
 
 .nav-bar__title {
+    font-family: 'Rubik', sans-serif;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .nav-bar__btn {
+    font-family: 'Rubik', sans-serif;
     text-decoration: none;
+    font-weight: bold;
+    border: .5px solid #8E8D8A;
+    padding: 5px 10px;
 }
 
 .nav-bar-links__container {
     padding: 5px;
+}
+
+.nav-bar__btn:visited {
+    color: black;
+}
+
+.nav-bar__btn:hover {
+    color: #E98074;
+}
+
+.logo {
+    width: 16px;
+    height: 16px;
+}
+
+.nav-bar__title:visited {
+    color: black;
+}
+
+.nav-bar__title:hover {
+    color: #E98074;
 }

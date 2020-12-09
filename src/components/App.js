@@ -68,7 +68,7 @@ export default class App extends Component {
           <nav>
             <NavBar />
           </nav>
-          <main>
+          <main className='main__container'>
             <Switch>
               <Route exact path='/' component={LandingPage} />
               <Route path='/dates' component={DatesPage} />

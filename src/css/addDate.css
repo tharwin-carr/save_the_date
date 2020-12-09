@@ -3,6 +3,12 @@
     margin-top: 100px;
 }
 
+.add-date__header {
+    font-family: 'Rubik', sans-serif;
+    color: #E85A4F;
+    font-size: 24px;
+}
+
 textarea.add-date__input {
     resize: none;
     height: 150px;
@@ -11,8 +17,53 @@ textarea.add-date__input {
 
 .add-date__btn {
     margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
-.back__btn {
-    margin-top: 20px;
+.add-date__btn:hover {
+    color: #E98074;
 }
+
+.add-date__btn:active {
+    background-color: #8E8D8A;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+.back__btn {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.back__btn .back {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .back__btn .back:after {
+    content: '\00ab';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+  }
+  
+  .back__btn:hover .back {
+    padding-left: 25px;
+  }
+  
+  .back__btn:hover .back:after {
+    opacity: 1;
+    left: 0;
+  }

@@ -1,6 +1,12 @@
 .footer__container {
     text-align: center;
     width: 100%;
+    color: #E85A4F;
+}
+
+.footer-label__words {
+    font-family: 'Work Sans', sans-serif;
+    padding-top: 15px;
 }
 
 a {

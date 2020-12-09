@@ -8,7 +8,7 @@ export default function LandingPage() {
         <div className='landing-page__container'>
             <Hero />
             <div className='landing-page__info'>
-            <h2>
+            <h2 className='landing-page__title'>
                 Why Save The Date?
             </h2>
             <Card 
@@ -20,7 +20,12 @@ export default function LandingPage() {
                 img='https://img.icons8.com/dotty/64/000000/running-rabbit.png'
                 title='Quick and Easy'
                 description={`Generate a random date idea with a push of a button. Don't like the suggestion? Press the button again and generate a new idea, it's that simple`}
-            />    
+            />
+            <Card
+                img='https://img.icons8.com/pastel-glyph/64/000000/like--v2.png'
+                title='Save Your Favorites'
+                description={`With a click of a button you can save your favorite dates for another day!`}
+            />   
             </div>
             <footer>
                 <Footer />            

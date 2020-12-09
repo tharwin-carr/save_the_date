@@ -4,8 +4,16 @@
 }
 
 .dates-page__header {
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
     padding-top: 100px;
     margin-bottom: 50px;
+    color: #E85A4F;
+}
+
+.dates-page__date {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
 }
 
 .add-date-btn__container {
@@ -16,14 +24,116 @@
     align-items: center;
 }
 
-.generate-btn, .add-date-btn {
+.generate-btn, .add-date-btn, .save-btn {
     margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .add-date-btn {
     margin-right: -15px;
 }
 
-.save-btn {
-    margin-top: 20px;
+.generate-btn {
+    position: relative;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+.generate-btn:hover {
+    color: #E98274;
+}  
+.generate-btn:after {
+    content: "";
+    background: #D8C3A5;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
 }
+  
+.generate-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+.save-btn {
+    text-align: center;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+  .save-btn .save {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .save-btn .save:after {
+    content: '\2764';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .save-btn:hover .save {
+    padding-right: 25px;
+  }
+  
+  .save-btn:hover .save:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .save-btn:hover {
+      color: #E98274;
+  }
+
+  .add-date-btn {
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+  .add-date-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .add-date-btn .add:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .add-date-btn:hover .add {
+    padding-right: 25px;
+  }
+  
+  .add-date-btn:hover .add:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .add-date-btn:hover {
+      color: #E98274;
+  }
