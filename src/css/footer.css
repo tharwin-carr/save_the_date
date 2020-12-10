@@ -1,7 +1,7 @@
 .footer__container {
     text-align: center;
     width: 100%;
-    color: #E85A4F;
+    color: #E85A4F;    
 }
 
 .footer-label__words {
@@ -11,5 +11,6 @@
 
 a {
     padding-right: 15px;
+    padding-bottom: 15px;
 }
 

@@ -10,6 +10,8 @@
 }
 
 textarea.add-date__input {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
     resize: none;
     height: 150px;
     width: 300px;
