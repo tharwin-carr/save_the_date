@@ -11,5 +11,18 @@
 .card__title {
     font-family: 'Rubik', sans-serif;
     color: #E85A4F;
-    font-size: 20px;
+    font-size: 22px;
+}
+
+@media only screen and (min-width: 768px) {
+    .card__container {
+        text-align: center;
+        width: 33%;
+        border-bottom: none;
+        padding-right: 20px;
+    }
+
+    .card__container:not(:last-child) {
+        border-right: 1px solid black;
+    }
 }

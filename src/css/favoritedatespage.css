@@ -1,8 +1,32 @@
 .favorites__container {
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.favorites__header {
+    font-family: 'Rubik', sans-serif;
     text-align: center;
+    color: #E85A4F;
 }
 
 .favorites__list {
     list-style: none;
+}
+
+.favorites__item {
+    padding: 15px 0 15px 10px;
+    border: 1px solid black;
+    font-family: 'Work Sans', sans-serif;      
+}
+
+.favorites__btn {
+    float: right;
+    border: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    position: relative;
+}
+
+.favorites__btn:hover {
+    color: #E98274;
 }

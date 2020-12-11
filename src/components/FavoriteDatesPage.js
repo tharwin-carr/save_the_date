@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import DateContext from '../DateContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import config from '../config'
 import PropTypes from 'prop-types'
+
+
+
 
 export default class FavoriteDatesPage extends Component {
     static defaultProps = {
@@ -40,16 +44,20 @@ export default class FavoriteDatesPage extends Component {
         let favorites = this.context.favorites
         return (
             <div className='favorites__container'>
+                <h1 className='favorites__header'>
+                    Favorites:
+                </h1>
+
                 <ul className='favorites__list'>
                     {favorites.map(favorite =>
-                    <li key={favorite.favorite_id}>
+                    <li className='favorites__item' key={favorite.favorite_id}>
                         {favorite.favorite_content}     
                         <button 
-                            className='btn'
+                            className='btn favorites__btn'
                             type='button'
                             onClick={this.handleClickDelete}
                         >
-                            Remove
+                            <FontAwesomeIcon icon='times'/>
                         </button>                  
                     </li>
                     )}

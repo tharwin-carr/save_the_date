@@ -11,7 +11,7 @@ export default class DatesPage extends Component {
             dates: [],
             headerMessage: '',
             border: 'false',
-            saveBtn: 'false'
+            saveBtn: 'false',
         }
         this.handleClickGenerate = this.handleClickGenerate.bind(this)
         this.handleClickSave = this.handleClickSave.bind(this)
@@ -53,9 +53,7 @@ export default class DatesPage extends Component {
         .then(favorite => {
             this.context.favoriteDate(favorite)
             alert('Date was successfully saved as a favorite!')
-            //window.location.reload()
-            console.log(this.context.favorites)
-            console.log(this.state.dates)
+            window.location.reload()
         })
 
         .catch((error) => {

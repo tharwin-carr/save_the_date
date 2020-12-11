@@ -137,3 +137,10 @@
   .add-date-btn:hover {
       color: #E98274;
   }
+
+
+  @media only screen and (min-width: 768px) {
+    .dates-page__date {
+        font-size: 1.2em;
+    }
+}

@@ -12,7 +12,7 @@ export default function Hero() {
 
             <div className='hero-description__container'>
                 <p className='hero-description__text'>
-                    <i>Save The Date helps make those "What should we do today?" conversations a little easier!</i>
+                    <span className='hero-title'>Save The Date</span> helps make those "What should we do today?" conversations a little easier!
                 </p>
             </div>
 

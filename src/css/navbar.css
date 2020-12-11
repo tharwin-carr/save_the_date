@@ -51,3 +51,11 @@
 .nav-bar__title:hover {
     color: #E98074;
 }
+
+.nav-bar__title:active {
+    color: #E98074;
+}
+
+.nav-bar__btn:active {
+    color: #E98074;
+}
