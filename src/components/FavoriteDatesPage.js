@@ -16,11 +16,8 @@ export default class FavoriteDatesPage extends Component {
     }
     static contextType = DateContext
 
-    handleClickDelete = e => {
+    handleClickDelete = (e, favoriteId) => {
         e.preventDefault()
-
-        const favoriteId = this.props.match.params
-        console.log(favoriteId)
 
         fetch(`${config.API_ENDPOINT}/favorites/${favoriteId}`, {
             method: 'DELETE',
@@ -31,14 +28,12 @@ export default class FavoriteDatesPage extends Component {
         .then(() => {
             this.context.deleteFavorite(favoriteId)
             this.props.onDeleteFavorite(favoriteId)
-            console.log(favoriteId)
+            window.location.reload()
         })
         .catch((error) => {
             console.log(error)
         })
     }
-
-
 
     render() {
         let favorites = this.context.favorites
@@ -50,12 +45,15 @@ export default class FavoriteDatesPage extends Component {
 
                 <ul className='favorites__list'>
                     {favorites.map(favorite =>
-                    <li className='favorites__item' key={favorite.favorite_id}>
+                    <li 
+                        className='favorites__item' 
+                        key={favorite.favorite_id}
+                    >
                         {favorite.favorite_content}     
                         <button 
                             className='btn favorites__btn'
                             type='button'
-                            onClick={this.handleClickDelete}
+                            onClick={(e) => this.handleClickDelete(e, favorite.favorite_id)}
                         >
                             <FontAwesomeIcon icon='times'/>
                         </button>                  

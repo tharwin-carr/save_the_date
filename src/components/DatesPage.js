@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import config from '../config'
 import DateContext from '../DateContext'
+import ErrorBoundary from '../ErrorBoundary'
 
 export default class DatesPage extends Component {
     static contextType = DateContext
@@ -40,7 +41,6 @@ export default class DatesPage extends Component {
         const favorite = {
             favorite_id: this.state.dates.id,
         }
-        console.log(favorite)
         event.preventDefault()
         fetch(`${config.API_ENDPOINT}/favorites`, {
             method: 'POST',
@@ -81,38 +81,40 @@ export default class DatesPage extends Component {
 
     render() {
         return (
-            <div className='dates-page__container'>
-            <h2 className='dates-page__header'>
-                {this.state.headerMessage === 'generatedDate' ? 'Your random date idea is:' : `Let's generate a date!`}
-            </h2>
-            <p 
-                className='dates-page__date'
-                style= {this.state.border === 'true' ? {
-                    border: '1px solid black',
-                    padding: '30px',
-                    width: '60%',
-                    margin: '0 auto'
-                } : {display: 'none'}}                
-            >
-                {this.state.dates.content}                                            
-            </p>
-            <div className='add-date-btn__container'>
-                <button
-                    onClick={this.handleClickGenerate} 
-                    className='btn generate-btn'
+            <ErrorBoundary>
+                <div className='dates-page__container'>
+                <h2 className='dates-page__header'>
+                    {this.state.headerMessage === 'generatedDate' ? 'Your random date idea is:' : `Let's generate a date!`}
+                </h2>
+                <p 
+                    className='dates-page__date'
+                    style= {this.state.border === 'true' ? {
+                        border: '1px solid black',
+                        padding: '30px',
+                        width: '60%',
+                        margin: '0 auto'
+                    } : {display: 'none'}}                
                 >
-                    Generate Date
-                </button>
-
-                {this.state.saveBtn === 'true' ? <button className='btn save-btn' onClick={this.handleClickSave}><span className='save'>Save the Date!</span></button> : null}
-
-                <Link to='/add-date'>
-                    <button className='btn add-date-btn'>
-                        <span className='add'>Submit A New Date Idea</span>                    
+                    {this.state.dates.content}                                            
+                </p>
+                <div className='add-date-btn__container'>
+                    <button
+                        onClick={this.handleClickGenerate} 
+                        className='btn generate-btn'
+                    >
+                        Generate Date
                     </button>
-                </Link>
+
+                    {this.state.saveBtn === 'true' ? <button className='btn save-btn' onClick={this.handleClickSave}><span className='save'>Save the Date!</span></button> : null}
+
+                    <Link to='/add-date'>
+                        <button className='btn add-date-btn'>
+                            <span className='add'>Submit A New Date Idea</span>                    
+                        </button>
+                    </Link>
+                </div>
             </div>
-        </div>
+        </ErrorBoundary>
         )
     }
 }

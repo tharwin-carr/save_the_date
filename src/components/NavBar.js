@@ -9,8 +9,9 @@ export default function NavBar() {
             <div className='nav-bar__header'>
                 <Link to='/' className='nav-bar__title'>
                     Save The Date
-                </Link>
-                <img className='logo' src={logo} alt='calendar with a heart in it' />
+                    {' '}
+                    <img className='logo' src={logo} alt='calendar with a heart in it' />
+                </Link>                
             </div>
             
             <div className='nav-bar-links__container'>

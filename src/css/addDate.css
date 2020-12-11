@@ -69,3 +69,7 @@ textarea.add-date__input {
     opacity: 1;
     left: 0;
   }
+
+  .error {
+    color: #E85A4F;
+  }
