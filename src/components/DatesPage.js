@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Link } from 'react-router-dom'
+import AddDateButton from '../buttons/AddDateButton'
 import config from '../config'
 import DateContext from '../DateContext'
 import ErrorBoundary from '../ErrorBoundary'
@@ -53,7 +53,9 @@ export default class DatesPage extends Component {
         .then(favorite => {
             this.context.favoriteDate(favorite)
             alert('Date was successfully saved as a favorite!')
+            this.props.history.push('/favorites')
             window.location.reload()
+
         })
 
         .catch((error) => {
@@ -82,7 +84,6 @@ export default class DatesPage extends Component {
     render() {
         return (
             <ErrorBoundary>
-                <BrowserRouter>
                 <div className='dates-page__container'>
                 <h2 className='dates-page__header'>
                     {this.state.headerMessage === 'generatedDate' ? 'Your random date idea is:' : `Let's generate a date!`}
@@ -108,14 +109,9 @@ export default class DatesPage extends Component {
 
                     {this.state.saveBtn === 'true' ? <button className='btn save-btn' onClick={this.handleClickSave}><span className='save'>Save the Date!</span></button> : null}
 
-                    <Link to='/add-date'>
-                        <button className='btn add-date-btn'>
-                            <span className='add'>Submit A New Date Idea</span>                    
-                        </button>
-                    </Link>
+                    <AddDateButton title='Submit A New Date Idea' />
                 </div>
             </div>
-            </BrowserRouter>
         </ErrorBoundary>
         )
     }

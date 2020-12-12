@@ -8,6 +8,7 @@ import AddDate from './components/AddDate'
 import DateContext from './DateContext'
 import config from './config'
 import FavoriteDatesPage from './components/FavoriteDatesPage'
+import history from './History'
 
 export default class App extends Component {
   state = {
@@ -64,14 +65,14 @@ export default class App extends Component {
     }
     return (
       <DateContext.Provider value= {dateContextValue}>
-        <BrowserRouter>          
+        <BrowserRouter history={history}>          
           <div className='app__container'>
             <nav>
               <NavBar />
             </nav>
             <main className='main__container'>
               <Switch>
-                <Route exact path='/' component={LandingPage} />
+                <Route exact path='/' component={() => <LandingPage />} />
                 <Route path='/dates' component={DatesPage} />
                 <Route path='/add-date' component={AddDate} />
                 <Route path='/favorites' component={FavoriteDatesPage} />

@@ -1,30 +1,26 @@
 import React from 'react'
-import { Link, BrowserRouter } from 'react-router-dom'
-import logo from './logo.png'
+import NavDatesButton from '../buttons/NavDatesButton'
+import NavFavoritesButton from '../buttons/NavFavoritesButton'
+import NavHomeButton from '../buttons/NavHomeButton'
 
 
 export default function NavBar() {
     return (
-        <BrowserRouter>
         <div className='nav-bar__container'>
             <div className='nav-bar__header'>
-                <Link to='/' className='nav-bar__title'>
-                    Save The Date
-                    {' '}
-                    <img className='logo' src={logo} alt='calendar with a heart in it' />
-                </Link>                
+                <NavHomeButton btnClass='nav-bar__title' title='Save The Date ' />             
             </div>
             
             <div className='nav-bar-links__container'>
-                <Link to='/dates' className='nav-bar__btn'>
-                    Dates 
-                </Link>
-
-                <Link to='/favorites' className='nav-bar__btn'>
-                    Favorites
-                </Link>
+                <NavDatesButton 
+                    btnClass='nav-bar__btn' 
+                    title='Dates'
+                />
+                <NavFavoritesButton 
+                    btnClass='nav-bar__btn' 
+                    title='Favorites'
+                />
             </div>            
         </div>
-        </BrowserRouter>
     )
 }

@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link, BrowserRouter } from 'react-router-dom'
+import DatesButton from '../buttons/DatesButton'
 
 export default function Hero() {
     return (
-        <BrowserRouter>
         <div className='hero__container'>
             <div className='hero-header__container'>
                 <h1 className='hero-header__text'>
@@ -18,13 +17,12 @@ export default function Hero() {
             </div>
 
             <div className='hero-button__container'>
-                <Link to='/dates'>
-                    <button className='btn hero-button__btn'>
-                        <span className='hero-btn__title'>Get Started</span>
-                    </button>
-                </Link>
+                <DatesButton 
+                    btnClass='btn hero-button__btn'
+                    titleClass='hero-btn__title'
+                    title='Get Started' 
+                />
             </div>                                                       
         </div>
-        </BrowserRouter>
     )
 }

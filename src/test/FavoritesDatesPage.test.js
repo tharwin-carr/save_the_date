@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import FavoriteDatesPage from '../components/FavoriteDatesPage'
+import FavoritesDatesPage from '../components/FavoriteDatesPage'
 
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<FavoriteDatesPage />, div)
+  ReactDOM.render(<FavoritesDatesPage />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
