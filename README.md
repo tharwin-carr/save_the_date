@@ -1,3 +1,3 @@
 Save The Date
 
-<img src='LandingPage.png'>
+<img src='LandingPage.png' alt='screenshot of landing page' />
