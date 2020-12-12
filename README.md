@@ -4,3 +4,5 @@
 
 <h2>Landing Page </h2>
 <img src='src/images/LandingPage.png' alt='screenshot of landing page' />
+<p> The landing page houses an explanation of why this app is useful and how to use it.</p>
+<p> There is also a 'Get Started' button which will take the user to the page where the date ideas are randomly generated</p>
