@@ -11,3 +11,5 @@
 <img src='src/images/DatesPage.png' alt='screenshot of dates page'>
 <p> The dates page is where all the magic happens. Here the user is able to genereate a random date or save the date as a favorite. There is also a submit button which will take 
 the user to a page where they can submit a date idea into the database.</p>
+
+<h2>Add Dates Page<h2>
