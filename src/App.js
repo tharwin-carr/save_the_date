@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import '../css/app.css'
-import NavBar from './NavBar'
-import LandingPage from './LandingPage'
-import DatesPage from './DatesPage'
-import AddDate from './AddDate'
-import DateContext from '../DateContext'
-import config from '../config'
-import FavoriteDatesPage from './FavoriteDatesPage'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import './css/app.css'
+import NavBar from './components/NavBar'
+import LandingPage from './components/LandingPage'
+import DatesPage from './components/DatesPage'
+import AddDate from './components/AddDate'
+import DateContext from './DateContext'
+import config from './config'
+import FavoriteDatesPage from './components/FavoriteDatesPage'
 
 export default class App extends Component {
   state = {
@@ -64,19 +64,21 @@ export default class App extends Component {
     }
     return (
       <DateContext.Provider value= {dateContextValue}>
-        <div className='app__container'>
-          <nav>
-            <NavBar />
-          </nav>
-          <main className='main__container'>
-            <Switch>
-              <Route exact path='/' component={LandingPage} />
-              <Route path='/dates' component={DatesPage} />
-              <Route path='/add-date' component={AddDate} />
-              <Route path='/favorites' component={FavoriteDatesPage} />
-            </Switch>
-          </main>
-      </div>      
+        <BrowserRouter>          
+          <div className='app__container'>
+            <nav>
+              <NavBar />
+            </nav>
+            <main className='main__container'>
+              <Switch>
+                <Route exact path='/' component={LandingPage} />
+                <Route path='/dates' component={DatesPage} />
+                <Route path='/add-date' component={AddDate} />
+                <Route path='/favorites' component={FavoriteDatesPage} />
+              </Switch>
+            </main>
+        </div>
+      </BrowserRouter>      
       </DateContext.Provider>  
     )
   }

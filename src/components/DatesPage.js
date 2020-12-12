@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { BrowserRouter, Link } from 'react-router-dom'
 import config from '../config'
 import DateContext from '../DateContext'
 import ErrorBoundary from '../ErrorBoundary'
@@ -82,6 +82,7 @@ export default class DatesPage extends Component {
     render() {
         return (
             <ErrorBoundary>
+                <BrowserRouter>
                 <div className='dates-page__container'>
                 <h2 className='dates-page__header'>
                     {this.state.headerMessage === 'generatedDate' ? 'Your random date idea is:' : `Let's generate a date!`}
@@ -114,6 +115,7 @@ export default class DatesPage extends Component {
                     </Link>
                 </div>
             </div>
+            </BrowserRouter>
         </ErrorBoundary>
         )
     }

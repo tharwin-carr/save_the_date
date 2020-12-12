@@ -59,7 +59,7 @@ export default class FavoriteDatesPage extends Component {
                         </button>                  
                     </li>
                     )}
-                </ul>                
+                </ul>          
             </div>
         )
     }

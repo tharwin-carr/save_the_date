@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, BrowserRouter } from 'react-router-dom'
 import logo from './logo.png'
 
 
 export default function NavBar() {
     return (
+        <BrowserRouter>
         <div className='nav-bar__container'>
             <div className='nav-bar__header'>
                 <Link to='/' className='nav-bar__title'>
@@ -24,5 +25,6 @@ export default function NavBar() {
                 </Link>
             </div>            
         </div>
+        </BrowserRouter>
     )
 }

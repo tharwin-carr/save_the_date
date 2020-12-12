@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, BrowserRouter } from 'react-router-dom'
 
 export default function Hero() {
     return (
+        <BrowserRouter>
         <div className='hero__container'>
             <div className='hero-header__container'>
                 <h1 className='hero-header__text'>
@@ -22,7 +23,8 @@ export default function Hero() {
                         <span className='hero-btn__title'>Get Started</span>
                     </button>
                 </Link>
-            </div>                        
+            </div>                                                       
         </div>
+        </BrowserRouter>
     )
 }

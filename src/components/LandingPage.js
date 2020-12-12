@@ -27,8 +27,7 @@ export default function LandingPage() {
                     img='https://img.icons8.com/pastel-glyph/64/000000/like--v2.png'
                     title='Save Your Favorites'
                     description={`With a click of a button you can save your favorite dates for another day!`}
-                />  
-
+                />
             </div>
             <footer>
                 <Footer />            
