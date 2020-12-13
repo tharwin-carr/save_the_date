@@ -18,6 +18,7 @@ export default class DatesPage extends Component {
         this.handleClickSave = this.handleClickSave.bind(this)
     }
 
+    //randomly generates a date idea for the user
     handleClickGenerate(event) {
         event.preventDefault()
         fetch(`${config.API_ENDPOINT}/dates`, {
@@ -37,6 +38,7 @@ export default class DatesPage extends Component {
         })
     }
 
+    //saves the selected date to the favorites page for the user
     handleClickSave(event) {
         const favorite = {
             favorite_id: this.state.dates.id,

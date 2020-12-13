@@ -24,10 +24,12 @@ export default class AddDate extends Component {
         }
     }
 
+    //updates the state with the content typed in the textarea
     updateContent(content) {
         this.setState({content: {value: content, touched: true}})
     }
 
+    //makes sure the submitted date isn't blank
     validateDateContent() {
         const content = this.state.content.value.trim()
         if (content.length === 0) {
@@ -35,6 +37,7 @@ export default class AddDate extends Component {
         }
     }
 
+    //adds a date idea from the textarea to the dates database
     handleSubmit(event) {
         event.preventDefault()
         const newDate = {

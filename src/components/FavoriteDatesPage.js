@@ -16,6 +16,7 @@ export default class FavoriteDatesPage extends Component {
     }
     static contextType = DateContext
 
+    //deletes the selected favorite from the favorites page
     handleClickDelete = (e, favoriteId) => {
         e.preventDefault()
 
@@ -49,14 +50,19 @@ export default class FavoriteDatesPage extends Component {
                         className='favorites__item' 
                         key={favorite.favorite_id}
                     >
-                        {favorite.favorite_content}     
+                        <p>
+                            {favorite.favorite_content}
+                        </p>
+
                         <button 
                             className='btn favorites__btn'
                             type='button'
                             onClick={(e) => this.handleClickDelete(e, favorite.favorite_id)}
                         >
+                            Remove
+                            {' '}
                             <FontAwesomeIcon icon='times'/>
-                        </button>                  
+                        </button>       
                     </li>
                     )}
                 </ul>          

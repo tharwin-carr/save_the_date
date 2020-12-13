@@ -3,8 +3,9 @@ import { useHistory } from 'react-router-dom'
 import logo from '../components/logo.png'
 
 export default function NavHomeButton(props) {
-    let history = useHistory();
+    let history = useHistory()
 
+    //takes the user to the selected page
     function handleClick() {
         history.push(`/`)
     }
