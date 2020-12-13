@@ -12,7 +12,7 @@
 <p> The dates page is where all the magic happens. Here the user is able to genereate a random date or save the date as a favorite. There is also a submit button which will take 
 the user to a page where they can submit a date idea into the database.</p>
 
-<h2>Add Dates Page<h2>
+<h2>Add Dates Page</h2>
 <img src='src/images/AddDates.png' alt='screenshot of add dates page'>
 <p>Here there is a from for users to submit a date idea.</p>
 
@@ -26,7 +26,6 @@ the user to a page where they can submit a date idea into the database.</p>
         <a href='https://save-the-date-kydtplmo7.vercel.app/'>Live version of the app</a>
     </li>
     <li>
-    </li>
         <a href='https://github.com/tharwin-carr/save-the-date-api'>API Repo</a>
     </li>
 </ul>
