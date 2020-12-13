@@ -23,9 +23,11 @@ the user to a page where they can submit a date idea into the database.</p>
 
 <ul>
     <li>
-        <a href='https://save-the-date-kydtplmo7.vercel.app/'>Live version of the app</a>
+        <a href='https://save-the-date-kydtplmo7.vercel.app/'>Live link</a>
     </li>
     <li>
         <a href='https://github.com/tharwin-carr/save-the-date-api'>API Repo</a>
     </li>
 </ul>
+
+<p>Tech used: React, PostgreSQL, Node, Express </p>
